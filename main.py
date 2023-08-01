@@ -12,6 +12,16 @@ branca = (255, 255, 255)
 vermelha = (255, 0, 0)
 verde = (0, 255, 0)
 
+tamanho_quadrado = 20
+##Create functions
+
+def gerar_comida():
+    comida_x = round(random.randrange(0, largura - tamanho_quadrado) / float(tamanho_quadrado)) * float(tamanho_quadrado)
+    comida_y = round(random.randrange(0, altura - tamanho_quadrado) / float(tamanho_quadrado)) * float(tamanho_quadrado)
+    return comida_x, comida_y
+
+def desenhar_comida(tamanho, comida_x, comida_y):
+    pygame.draw.rect(tela, verde, [comida_x, comida_y, tamanho, tamanho])
 
 
 
