@@ -23,7 +23,29 @@ def gerar_comida():
 def desenhar_comida(tamanho, comida_x, comida_y):
     pygame.draw.rect(tela, verde, [comida_x, comida_y, tamanho, tamanho])
 
+def desenhar_cobra(tamanho, pixels):
+    for pixel in pixels:
+        pygame.draw.rect(tela, branca, [pixel[0], pixel[1], tamanho, tamanho])
 
+def desenhar_pontucao(pontuacao):
+    fonte = pygame.font.SysFont("Helvetica", 35)
+    texto = fonte.render(f"Pontos : {pontuacao}", True, vermelha)
+    tela.blit(texto, [1, 1])
+
+def selecionar_velocidade(tecla):
+    if tecla == pygame.K_DOWN:
+        velocidade_x = 0
+        velocidade_y = tamanho_quadrado
+    elif tecla == pygame.K_UP:
+        velocidade_x = 0
+        velocidade_y = -tamanho_quadrado
+    elif tecla == pygame.K_RIGHT:
+        velocidade_x = tamanho_quadrado
+        velocidade_y = 0
+    elif tecla == pygame.K_LEFT:
+        velocidade_x = -tamanho_quadrado
+        velocidade_y = 0
+    return velocidade_x, velocidade_y
 
 def rodar_jogo():
     fim_jogo = False
